@@ -1,12 +1,10 @@
 ﻿using HtmlAgilityPack;
 using MetroStations.Models;
-using System;
+using Oceandata.WebApi;
+using Oceandata.WebApi.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using WebApi.OutputCache.V2;
 using WebApi.OutputCache.V2.TimeAttributes;
 
 namespace MetroStations.Controllers
@@ -14,6 +12,7 @@ namespace MetroStations.Controllers
     /// <summary>
     /// Base controller for Metro stations queries
     /// </summary>
+    [RoutePrefix("api/metro")]
     public class MetroController : ApiController
     {
         private static readonly int CountSPBMetroLines = 5;
@@ -24,45 +23,48 @@ namespace MetroStations.Controllers
         /// <summary>
         /// Get list of metro stations in target city
         /// </summary>
-        /// <param name="city_id">Integer city ID, can be gotten from api/cities</param>
+        /// <param name="cityId">City ID, can be taken from api/cities</param>
         /// <returns><c>IEnumerable</c> of MetroStation type</returns>
         [CacheOutputUntilThisMonth(25)]
-        public IEnumerable<MetroStation> GetByCity(int city_id)
+        [Route("{cityId}")]
+        public IHttpActionResult GetCityMetro(string cityId)
         {
             // TODO: 1) Get Date of last wiki article Update and check if we have any changes
             // TODO: 2) Get more Info about metro stations and Save to our DB
 
             var htmlWeb = new HtmlWeb();
 
-            IEnumerable<MetroStation> metroStations;
+            City city = City.N();
 
-            switch (city_id)
+            switch (cityId)
             {
-                case 1:
+                case Constants.CityIds.Moscow:
                     var htmlDoc = htmlWeb.Load(TargetUrlMoscow);
 
                     var contentElement = htmlDoc.GetElementbyId("mw-content-text");
 
-                    metroStations = GetMoscowStations(contentElement);
+                    city = City.Moscow();
+                    city.MetroLines = GetMoscowMetroSchema(contentElement);
                     break;
-                case 2:
+
+                case Constants.CityIds.SaintPetersburg:
                     htmlDoc = htmlWeb.Load(TargetUrlSPB);
 
                     contentElement = htmlDoc.GetElementbyId("mw-content-text");
 
-                    metroStations = GetSPBStations(contentElement);
+                    city = City.SaintPetersburg();
+                    city.MetroLines = GetSpbMetroSchema(contentElement); 
                     break;
-                default:
-                    metroStations = new List<MetroStation>();
-                    break;
-            }
 
-            return metroStations;
+                default:
+                    return NotFound();
+            }
+            return Ok(city);
         }
 
-        private List<MetroStation> GetMoscowStations(HtmlNode contentElement)
+        private List<MetroLine> GetMoscowMetroSchema(HtmlNode contentElement)
         {
-            var allStations = new List<MetroStation>();
+            var lines = new List<MetroLine>();
 
             var wikiTable = contentElement.Element("table");
             var allMetroRows = wikiTable.Elements("tr");
@@ -72,23 +74,22 @@ namespace MetroStations.Controllers
                 if (!metroRow.ChildNodes.Any(n => n.Name == "td"))
                     continue;
 
-                var metro = new MetroStation();
-
                 var rowCells = metroRow.Elements("td").ToList();
 
                 var lineNameSpan = rowCells[0].ChildNodes.First(n => n.Attributes.Any(a => a.Name == "title"));
-                metro.LineName = lineNameSpan.Attributes.First(a => a.Name == "title").Value;
-                metro.Name = rowCells[1].Element("span").Element("a").InnerText;
-
-                allStations.Add(metro);
+                var lineName = lineNameSpan.Attributes.First(a => a.Name == "title").Value;
+                var metro = new MetroStation(rowCells[1].Element("span").Element("a").InnerText);
+                var line = new MetroLine(lineName);
+                line.Stations.Add(metro);
+                lines.Add(line);
             }
 
-            return allStations;
+            return lines;
         }
 
-        private static List<MetroStation> GetSPBStations(HtmlNode contentElement)
+        private static List<MetroLine> GetSpbMetroSchema(HtmlNode contentElement)
         {
-            var allStations = new List<MetroStation>();
+            var lines = new List<MetroLine>();
 
             var currentNode = contentElement.Element("h2");
 
@@ -98,19 +99,27 @@ namespace MetroStations.Controllers
                 var tableNode = currentNode.NextSibling.NextSibling;
                 var stationRows = tableNode.Elements("tr").Skip(2);
 
+                var line = new MetroLine(lineName);
+
                 foreach (var row in stationRows)
                 {
-                    var metro = new MetroStation();
-                    metro.LineName = lineName;
                     var rowCells = row.Elements("td").ToList();
-                    metro.Name = rowCells[0].Descendants("a").ToList()[0].InnerText;
-                    allStations.Add(metro);
+                    var stationName = rowCells[0].Descendants("a").ToList()[0].InnerText;
+                    line.Stations.Add(new MetroStation(stationName));
+                    // клиент просил добавить вестибюль
+                    // вообще-то это не станция
+                    // TODO: адаптировать BL под вестибюли
+                    if (lineName == "Фрунзенско-Приморская линия" && stationName == "Спортивная")
+                    {
+                        line.Stations.Add(new MetroStation("Спортивная 2"));
+                    }
                 }
 
+                lines.Add(line);
                 currentNode = tableNode.NextSibling.NextSibling;
             }
 
-            return allStations;
+            return lines;
         }
     }
 }
