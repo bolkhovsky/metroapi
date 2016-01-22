@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MetroStations.Models
+﻿namespace MetroStations.Models
 {
     /// <summary>
     /// Represents metro station
@@ -11,13 +6,18 @@ namespace MetroStations.Models
     public class MetroStation
     {
         /// <summary>
-        /// Line name
-        /// </summary>
-        public string LineName { get; set; }
-
-        /// <summary>
         /// Station name
         /// </summary>
         public string Name { get; set; }
+
+        public MetroStation()
+        {
+
+        }
+
+        public MetroStation(string name)
+        {
+            this.Name = name;
+        }
     }
 }

@@ -497,11 +497,11 @@
             Base controller for Metro stations queries
             </summary>
         </member>
-        <member name="M:MetroStations.Controllers.MetroController.GetByCity(System.Int32)">
+        <member name="M:MetroStations.Controllers.MetroController.GetCityMetro(System.String)">
             <summary>
             Get list of metro stations in target city
             </summary>
-            <param name="city_id">Integer city ID, can be gotten from api/cities</param>
+            <param name="cityId">City ID, can be taken from api/cities</param>
             <returns><c>IEnumerable</c> of MetroStation type</returns>
         </member>
         <member name="T:MetroStations.Models.City">
@@ -509,7 +509,7 @@
             Represent information about city
             </summary>
         </member>
-        <member name="P:MetroStations.Models.City.ID">
+        <member name="P:MetroStations.Models.City.Id">
             <summary>
             City ID
             </summary>
@@ -519,14 +519,14 @@
             City name
             </summary>
         </member>
+        <member name="P:MetroStations.Models.City.MetroLines">
+            <summary>
+            List of metro lines
+            </summary>
+        </member>
         <member name="T:MetroStations.Models.MetroStation">
             <summary>
             Represents metro station
-            </summary>
-        </member>
-        <member name="P:MetroStations.Models.MetroStation.LineName">
-            <summary>
-            Line name
             </summary>
         </member>
         <member name="P:MetroStations.Models.MetroStation.Name">

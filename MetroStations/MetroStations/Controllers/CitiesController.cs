@@ -18,8 +18,8 @@ namespace MetroStations.Controllers
             // TODO: Move to database
             var cities = new List<City>()
             {
-                new City() { ID = 1, Name = "Moscow" },
-                new City() { ID = 2, Name = "Saint Petersburg" }
+                City.Moscow(),
+                City.SaintPetersburg()
             };
 
             return cities;
