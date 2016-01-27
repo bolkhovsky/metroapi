@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Oceandata.WebApi</name>
+        <name>MetroApi.Web</name>
     </assembly>
     <members>
         <member name="M:MetroStations.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
