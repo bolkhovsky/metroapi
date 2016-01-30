@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using MetroStations.Areas.HelpPage.ModelDescriptions;
-using MetroStations.Areas.HelpPage.Models;
+using MetroApi.Web.Areas.HelpPage.ModelDescriptions;
+using MetroApi.Web.Areas.HelpPage.Models;
 
-namespace MetroStations.Areas.HelpPage.Controllers
+namespace MetroApi.Web.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

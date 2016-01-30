@@ -1,7 +1,7 @@
-﻿using MetroStations.Models;
+﻿using MetroApi.Web.Models;
 using System.Collections.Generic;
 
-namespace Oceandata.WebApi.Models
+namespace MetroApi.Web.Models
 {
     public class MetroLine
     {

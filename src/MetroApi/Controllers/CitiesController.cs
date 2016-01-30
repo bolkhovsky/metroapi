@@ -1,8 +1,8 @@
-﻿using MetroStations.Models;
+﻿using MetroApi.Web.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 
-namespace MetroStations.Controllers
+namespace MetroApi.Web.Controllers
 {
     /// <summary>
     /// Base controller for Cities queries
