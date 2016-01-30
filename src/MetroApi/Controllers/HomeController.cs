@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace MetroStations.Controllers
+namespace MetroApi.Web.Controllers
 {
     public class HomeController : Controller
     {

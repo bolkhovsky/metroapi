@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using MetroStations.Areas.HelpPage.ModelDescriptions;
+using MetroApi.Web.Areas.HelpPage.ModelDescriptions;
 
-namespace MetroStations.Areas.HelpPage.Models
+namespace MetroApi.Web.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

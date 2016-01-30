@@ -1,4 +1,4 @@
-namespace MetroStations.Areas.HelpPage.ModelDescriptions
+namespace MetroApi.Web.Areas.HelpPage.ModelDescriptions
 {
     public class CollectionModelDescription : ModelDescription
     {

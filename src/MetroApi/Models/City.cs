@@ -1,8 +1,8 @@
-﻿using Oceandata.WebApi;
-using Oceandata.WebApi.Models;
+﻿using MetroApi.Web;
+using MetroApi.Web.Models;
 using System.Collections.Generic;
 
-namespace MetroStations.Models
+namespace MetroApi.Web.Models
 {
     /// <summary>
     /// Represent information about city
@@ -23,15 +23,6 @@ namespace MetroStations.Models
         /// List of metro lines
         /// </summary>
         public List<MetroLine> MetroLines { get; set; }
-
-        public static City N()
-        {
-            return new City
-            {
-                Id = "N",
-                Name = "Default City"
-            };
-        }
 
         public static City Moscow()
         {

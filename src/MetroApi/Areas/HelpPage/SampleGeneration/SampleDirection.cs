@@ -1,4 +1,4 @@
-namespace MetroStations.Areas.HelpPage
+namespace MetroApi.Web.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

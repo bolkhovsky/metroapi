@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace MetroStations.Areas.HelpPage.ModelDescriptions
+namespace MetroApi.Web.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

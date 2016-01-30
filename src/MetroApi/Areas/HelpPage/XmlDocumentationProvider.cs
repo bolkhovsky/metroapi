@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using MetroStations.Areas.HelpPage.ModelDescriptions;
+using MetroApi.Web.Areas.HelpPage.ModelDescriptions;
 
-namespace MetroStations.Areas.HelpPage
+namespace MetroApi.Web.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

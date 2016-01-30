@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using MetroStations.Areas.HelpPage.ModelDescriptions;
-using MetroStations.Areas.HelpPage.Models;
+using MetroApi.Web.Areas.HelpPage.ModelDescriptions;
+using MetroApi.Web.Areas.HelpPage.Models;
 
-namespace MetroStations.Areas.HelpPage
+namespace MetroApi.Web.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

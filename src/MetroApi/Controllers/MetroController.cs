@@ -1,13 +1,13 @@
 ﻿using HtmlAgilityPack;
-using MetroStations.Models;
-using Oceandata.WebApi;
-using Oceandata.WebApi.Models;
+using MetroApi.Web.Models;
+using MetroApi.Web;
+using MetroApi.Web.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using WebApi.OutputCache.V2.TimeAttributes;
 
-namespace MetroStations.Controllers
+namespace MetroApi.Web.Controllers
 {
     /// <summary>
     /// Base controller for Metro stations queries
@@ -34,7 +34,7 @@ namespace MetroStations.Controllers
 
             var htmlWeb = new HtmlWeb();
 
-            City city = City.N();
+            City city;
 
             switch (cityId)
             {

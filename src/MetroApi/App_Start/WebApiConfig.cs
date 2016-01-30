@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace MetroStations
+namespace MetroApi.Web
 {
     public static class WebApiConfig
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MetroStations
+namespace MetroApi.Web
 {
     public class BundleConfig
     {

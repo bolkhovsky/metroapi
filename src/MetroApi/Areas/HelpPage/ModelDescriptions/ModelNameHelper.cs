@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace MetroStations.Areas.HelpPage.ModelDescriptions
+namespace MetroApi.Web.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

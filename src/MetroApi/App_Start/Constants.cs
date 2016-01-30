@@ -1,4 +1,4 @@
-﻿namespace Oceandata.WebApi
+﻿namespace MetroApi.Web
 {
     public class Constants
     {
