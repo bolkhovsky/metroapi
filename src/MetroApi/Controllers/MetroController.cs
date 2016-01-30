@@ -34,7 +34,7 @@ namespace MetroStations.Controllers
 
             var htmlWeb = new HtmlWeb();
 
-            City city = City.N();
+            City city;
 
             switch (cityId)
             {

@@ -24,15 +24,6 @@ namespace MetroStations.Models
         /// </summary>
         public List<MetroLine> MetroLines { get; set; }
 
-        public static City N()
-        {
-            return new City
-            {
-                Id = "N",
-                Name = "Default City"
-            };
-        }
-
         public static City Moscow()
         {
             return new City
