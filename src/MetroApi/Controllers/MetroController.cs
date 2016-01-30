@@ -1,11 +1,10 @@
 ﻿using HtmlAgilityPack;
 using MetroApi.Web.Models;
-using MetroApi.Web;
-using MetroApi.Web.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using WebApi.OutputCache.V2.TimeAttributes;
+using System.Net;
 
 namespace MetroApi.Web.Controllers
 {
@@ -27,7 +26,7 @@ namespace MetroApi.Web.Controllers
         /// <returns><c>IEnumerable</c> of MetroStation type</returns>
         [CacheOutputUntilThisMonth(25)]
         [Route("{cityId}")]
-        public IHttpActionResult GetCityMetro(string cityId)
+        public City GetCityMetro(string cityId)
         {
             // TODO: 1) Get Date of last wiki article Update and check if we have any changes
             // TODO: 2) Get more Info about metro stations and Save to our DB
@@ -57,9 +56,9 @@ namespace MetroApi.Web.Controllers
                     break;
 
                 default:
-                    return NotFound();
+                    throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            return Ok(city);
+            return city;
         }
 
         private List<MetroLine> GetMoscowMetroSchema(HtmlNode contentElement)
