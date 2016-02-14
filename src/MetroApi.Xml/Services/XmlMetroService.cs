@@ -33,17 +33,6 @@ namespace MetroApi.Xml.Services
         {
             if (!_citiesConfig.ContainsKey(cityId))
                 throw new CityNotFound(cityId);
-            //var configuration = Core.Configuration.MetroApiConfig.GetConfig();
-            //var cityConfig = configuration.Cities
-            //    .OfType<Core.Configuration.City>()
-            //    .SingleOrDefault(x => x.Id == cityId);
-
-            //if (cityConfig == null)
-            //    throw new CityNotFound(cityId);
-
-            //var cityDataPath = cityConfig.Filepath;
-            //if (Path.IsPathRooted(cityDataPath))
-            //    HostingEnvironment
 
             var xmlSerializer = new XmlSerializer(typeof(City));
             using (var reader = XmlReader.Create(_citiesConfig[cityId]))
