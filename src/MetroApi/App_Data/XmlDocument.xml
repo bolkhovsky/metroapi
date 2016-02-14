@@ -504,35 +504,5 @@
             <param name="cityId">City ID, can be taken from api/cities</param>
             <returns><c>IEnumerable</c> of MetroStation type</returns>
         </member>
-        <member name="T:MetroApi.Web.Models.City">
-            <summary>
-            Represent information about city
-            </summary>
-        </member>
-        <member name="P:MetroApi.Web.Models.City.Id">
-            <summary>
-            City ID
-            </summary>
-        </member>
-        <member name="P:MetroApi.Web.Models.City.Name">
-            <summary>
-            City name
-            </summary>
-        </member>
-        <member name="P:MetroApi.Web.Models.City.MetroLines">
-            <summary>
-            List of metro lines
-            </summary>
-        </member>
-        <member name="T:MetroApi.Web.Models.MetroStation">
-            <summary>
-            Represents metro station
-            </summary>
-        </member>
-        <member name="P:MetroApi.Web.Models.MetroStation.Name">
-            <summary>
-            Station name
-            </summary>
-        </member>
     </members>
 </doc>

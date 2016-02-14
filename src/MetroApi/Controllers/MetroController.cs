@@ -1,10 +1,11 @@
 ﻿using HtmlAgilityPack;
-using MetroApi.Web.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using WebApi.OutputCache.V2.TimeAttributes;
 using System.Net;
+using MetroApi.Core.Models;
+using MetroApi.Core;
 
 namespace MetroApi.Web.Controllers
 {

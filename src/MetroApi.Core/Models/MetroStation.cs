@@ -1,4 +1,4 @@
-﻿namespace MetroApi.Web.Models
+﻿namespace MetroApi.Core.Models
 {
     /// <summary>
     /// Represents metro station

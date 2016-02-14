@@ -1,4 +1,4 @@
-﻿namespace MetroApi.Web
+﻿namespace MetroApi.Core
 {
     public class Constants
     {

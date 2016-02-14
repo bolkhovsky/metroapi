@@ -1,4 +1,4 @@
-﻿using MetroApi.Web.Models;
+﻿using MetroApi.Core.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 

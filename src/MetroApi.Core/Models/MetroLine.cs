@@ -1,7 +1,6 @@
-﻿using MetroApi.Web.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace MetroApi.Web.Models
+namespace MetroApi.Core.Models
 {
     public class MetroLine
     {
