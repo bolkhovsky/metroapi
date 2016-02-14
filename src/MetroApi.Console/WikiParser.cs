@@ -31,10 +31,20 @@ namespace MetroApi.Console
 
                 var lineNameSpan = rowCells[0].ChildNodes.First(n => n.Attributes.Any(a => a.Name == "title"));
                 var lineName = lineNameSpan.Attributes.First(a => a.Name == "title").Value;
-                var metro = new MetroStation(rowCells[1].Element("span").Element("a").InnerText);
-                var line = new MetroLine(lineName);
-                line.Stations.Add(metro);
-                lines.Add(line);
+
+                MetroLine line;
+                if (!lines.Any(l => l.Name == lineName))
+                {
+                    line = new MetroLine(lineName);
+                    lines.Add(line);
+                }
+                else
+                {
+                    line = lines.Single(l => l.Name == lineName);
+                }
+
+                var station = new MetroStation(rowCells[1].Element("span").Element("a").InnerText);
+                line.Stations.Add(station);
             }
             return lines;
         }
