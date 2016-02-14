@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ConsolePlate;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace MetroApi.Console
 {
@@ -10,6 +9,19 @@ namespace MetroApi.Console
     {
         static void Main(string[] args)
         {
+            var plate = new Plate();
+
+            if (args.Any())
+            {
+                plate.Start(args, Assembly.GetExecutingAssembly());
+            }
+            else
+            {
+                plate.Start(args, Assembly.GetExecutingAssembly());
+                var cmd = System.Console.ReadLine();
+                plate.Start(cmd.Split(' '), Assembly.GetExecutingAssembly());
+                System.Console.ReadKey();
+            }
         }
     }
 }
