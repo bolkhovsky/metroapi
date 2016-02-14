@@ -6,7 +6,6 @@ using MetroApi.Core;
 using MetroApi.Core.Models;
 using MetroApi.Core.Exceptions;
 using System.Xml.Serialization;
-using System.IO;
 using System.Xml;
 
 namespace MetroApi.Console.Commands

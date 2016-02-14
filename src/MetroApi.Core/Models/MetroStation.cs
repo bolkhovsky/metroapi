@@ -1,4 +1,6 @@
-﻿namespace MetroApi.Core.Models
+﻿using System.Xml.Serialization;
+
+namespace MetroApi.Core.Models
 {
     /// <summary>
     /// Represents metro station
@@ -8,6 +10,7 @@
         /// <summary>
         /// Station name
         /// </summary>
+        [XmlAttribute]
         public string Name { get; set; }
 
         public MetroStation()

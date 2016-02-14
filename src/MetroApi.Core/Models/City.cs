@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace MetroApi.Core.Models
 {
@@ -10,11 +11,13 @@ namespace MetroApi.Core.Models
         /// <summary>
         /// City ID
         /// </summary>
+        [XmlAttribute]
         public string Id { get; set; }
 
         /// <summary>
         /// City name
         /// </summary>
+        [XmlAttribute]
         public string Name { get; set; }
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace MetroApi.Core.Models
             return new City
             {
                 Id = Constants.CityIds.Moscow,
-                Name = "Moscow"
+                Name = "Москва"
             };
         }
 
@@ -36,7 +39,7 @@ namespace MetroApi.Core.Models
             return new City
             {
                 Id = Constants.CityIds.SaintPetersburg,
-                Name = "Saint Petersburg"
+                Name = "Санкт-Петербург"
             };
         }
     }
