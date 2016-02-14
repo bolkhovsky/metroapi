@@ -1,20 +1,22 @@
 ﻿using MetroApi.Core.Services;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MetroApi.Core.Models;
-using System;
-using MetroApi.Core;
 using MetroApi.Core.Exceptions;
+using System.Xml.Serialization;
+using System.Xml;
+using System;
 
 namespace MetroApi.Xml.Services
 {
     public class XmlMetroService : IMetroService
     {
-        public XmlMetroService()
-        {
+        private readonly IDictionary<string, string> _citiesConfig;
 
+        public XmlMetroService(IDictionary<string, string> citiesConfig)
+        {
+            if (citiesConfig == null)
+                throw new ArgumentNullException("citiesConfig");
+            _citiesConfig = citiesConfig;
         }
 
         public IEnumerable<City> GetCities()
@@ -29,23 +31,25 @@ namespace MetroApi.Xml.Services
 
         public City GetCitySchema(string cityId)
         {
-            City city;
-            switch (cityId)
+            if (!_citiesConfig.ContainsKey(cityId))
+                throw new CityNotFound(cityId);
+            //var configuration = Core.Configuration.MetroApiConfig.GetConfig();
+            //var cityConfig = configuration.Cities
+            //    .OfType<Core.Configuration.City>()
+            //    .SingleOrDefault(x => x.Id == cityId);
+
+            //if (cityConfig == null)
+            //    throw new CityNotFound(cityId);
+
+            //var cityDataPath = cityConfig.Filepath;
+            //if (Path.IsPathRooted(cityDataPath))
+            //    HostingEnvironment
+
+            var xmlSerializer = new XmlSerializer(typeof(City));
+            using (var reader = XmlReader.Create(_citiesConfig[cityId]))
             {
-                case Constants.CityIds.Moscow:
-                    city = City.Moscow();
-                    //city.MetroLines = GetMoscowMetroSchema(contentElement);
-                    break;
-
-                case Constants.CityIds.SaintPetersburg:
-                    city = City.SaintPetersburg();
-                    //city.MetroLines = GetSpbMetroSchema(contentElement);
-                    break;
-
-                default:
-                    throw new CityNotFound(cityId);
+                return (City)xmlSerializer.Deserialize(reader);
             }
-            return city;
         }
     }
 }
