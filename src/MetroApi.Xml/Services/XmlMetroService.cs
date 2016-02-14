@@ -12,6 +12,21 @@ namespace MetroApi.Xml.Services
 {
     public class XmlMetroService : IMetroService
     {
+        public XmlMetroService()
+        {
+
+        }
+
+        public IEnumerable<City> GetCities()
+        {
+            var cities = new List<City>()
+            {
+                City.Moscow(),
+                City.SaintPetersburg()
+            };
+            return cities;
+        }
+
         public City GetCitySchema(string cityId)
         {
             City city;
