@@ -25,7 +25,7 @@ namespace MetroApi.Web.Controllers
         /// Get list of available cities
         /// </summary>
         /// <returns><c>IEnumerable</c> of City type</returns>
-        [CacheOutputUntilThisMonth(30)]
+        [CacheOutputUntilThisMonth(25)]
         public IEnumerable<City> Get()
         {
             return _metroService.GetCities();                        

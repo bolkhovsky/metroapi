@@ -28,7 +28,7 @@ namespace MetroApi.Web.Controllers
         /// <param name="cityId">City ID, can be taken from api/cities</param>
         /// <returns><c>IEnumerable</c> of MetroStation type</returns>
         [Route("{cityId}")]
-        [CacheOutputUntilThisMonth(30)]
+        [CacheOutputUntilThisMonth(25)]
         public City GetCityMetro(string cityId)
         {
             try
