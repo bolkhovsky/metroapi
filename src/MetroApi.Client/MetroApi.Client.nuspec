@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>MetroApi.Client</id>
+        <version>$version$</version>
+        <authors>Ilya Bolkhovsky</authors>
+        <projectUrl>http://metroapi.ru/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Станции метро Москвы и Санкт-Петербурга в вашем приложении.</description>
+        <dependencies>
+            <dependency id="RestSharp" version="105.2.3" />
+        </dependencies>
+    </metadata>
+  <files>
+    <file src="bin\$configuration$\MetroApi.Client.dll" target="lib" />
+    <file src="bin\$configuration$\MetroApi.Core.dll" target="lib" />
+  </files>
+</package>
