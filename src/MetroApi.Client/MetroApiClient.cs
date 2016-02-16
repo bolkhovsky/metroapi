@@ -28,7 +28,7 @@ namespace MetroApi.Client
             request.AddParameter("cityId", cityId, ParameterType.UrlSegment);
 
             var response = client.Execute<City>(request);
-
+            
             if (response.ErrorException != null)
             {
                 const string message = "Error retrieving response.  Check inner details for more info.";

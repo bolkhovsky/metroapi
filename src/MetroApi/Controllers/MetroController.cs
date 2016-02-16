@@ -4,6 +4,7 @@ using MetroApi.Core.Models;
 using MetroApi.Core.Services;
 using System;
 using MetroApi.Core.Exceptions;
+using MetroApi.Core;
 
 namespace MetroApi.Web.Controllers
 {
@@ -20,6 +21,28 @@ namespace MetroApi.Web.Controllers
             if (metroService == null)
                 throw new ArgumentNullException("metroService");
             _metroService = metroService;
+        }
+
+        /// <summary>
+        /// Get list of metro stations in Saint Petersburg
+        /// </summary>
+        /// <returns><c>IEnumerable</c> of MetroStation type</returns>
+        [Route("spb")]
+        [CacheOutputUntilThisMonth(25)]
+        public City GetSaintPetersburgMetro()
+        {
+            return GetCityMetro(Constants.CityIds.SaintPetersburg);
+        }
+
+        /// <summary>
+        /// Get list of metro stations in Moscow
+        /// </summary>
+        /// <returns><c>IEnumerable</c> of MetroStation type</returns>
+        [Route("moscow")]
+        [CacheOutputUntilThisMonth(25)]
+        public City GetMoscowMetro()
+        {
+            return GetCityMetro(Constants.CityIds.Moscow);
         }
 
         /// <summary>

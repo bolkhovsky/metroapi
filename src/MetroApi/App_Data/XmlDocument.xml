@@ -481,21 +481,22 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:MetroApi.Web.Controllers.CitiesController">
-            <summary>
-            Base controller for Cities queries
-            </summary>
-        </member>
-        <member name="M:MetroApi.Web.Controllers.CitiesController.Get">
-            <summary>
-            Get list of available cities
-            </summary>
-            <returns><c>IEnumerable</c> of City type</returns>
-        </member>
         <member name="T:MetroApi.Web.Controllers.MetroController">
             <summary>
             Base controller for Metro stations queries
             </summary>
+        </member>
+        <member name="M:MetroApi.Web.Controllers.MetroController.GetSaintPetersburgMetro">
+            <summary>
+            Get list of metro stations in Saint Petersburg
+            </summary>
+            <returns><c>IEnumerable</c> of MetroStation type</returns>
+        </member>
+        <member name="M:MetroApi.Web.Controllers.MetroController.GetMoscowMetro">
+            <summary>
+            Get list of metro stations in Moscow
+            </summary>
+            <returns><c>IEnumerable</c> of MetroStation type</returns>
         </member>
         <member name="M:MetroApi.Web.Controllers.MetroController.GetCityMetro(System.String)">
             <summary>
