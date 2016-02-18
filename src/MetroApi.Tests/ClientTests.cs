@@ -8,5 +8,11 @@ namespace MetroApi.Tests
 {
     public class ClientTests
     {
+        public ClientTests()
+        {
+
+        }
+
+
     }
 }
