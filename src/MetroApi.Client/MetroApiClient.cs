@@ -7,7 +7,19 @@ namespace MetroApi.Client
 {
     public class MetroApiClient
     {
-        const string BaseUrl = "http://metroapi.ru/api/";
+        private readonly string _baseUrl;
+
+        public MetroApiClient()
+            : this("http://metroapi.ru/api/")
+        {
+        }
+
+        public MetroApiClient(string baseUrl)
+        {
+            if (baseUrl == null)
+                throw new ArgumentNullException("baseUrl");
+            _baseUrl = baseUrl;
+        }
 
         public City GetSaintPetersburgMetro()
         {
@@ -22,7 +34,7 @@ namespace MetroApi.Client
         public City GetCityMetro(string cityId)
         {
             var client = new RestClient();
-            client.BaseUrl = new Uri(BaseUrl);
+            client.BaseUrl = new Uri(_baseUrl);
 
             var request = new RestRequest("api/metro/{cityId}");
             request.AddParameter("cityId", cityId, ParameterType.UrlSegment);
