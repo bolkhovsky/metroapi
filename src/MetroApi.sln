@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Xml", "MetroApi.Xm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Client", "MetroApi.Client\MetroApi.Client.csproj", "{C080D14C-2C34-479B-83EB-149AE89E282D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Tests", "MetroApi.Tests\MetroApi.Tests.csproj", "{7C7E4860-2774-4AAE-8F58-CBFE9AEE416E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C080D14C-2C34-479B-83EB-149AE89E282D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C080D14C-2C34-479B-83EB-149AE89E282D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C080D14C-2C34-479B-83EB-149AE89E282D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7E4860-2774-4AAE-8F58-CBFE9AEE416E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7E4860-2774-4AAE-8F58-CBFE9AEE416E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7E4860-2774-4AAE-8F58-CBFE9AEE416E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7E4860-2774-4AAE-8F58-CBFE9AEE416E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

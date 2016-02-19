@@ -6,26 +6,37 @@ using System.Collections.Generic;
 using System.Web.Http;
 using Unity.WebApi;
 using System.Web.Hosting;
+using System.IO;
 
 namespace MetroApi.Web
 {
     public static class UnityConfig
     {
-        public static void RegisterComponents()
+        public static void RegisterComponents(HttpConfiguration config)
         {
 			var container = new UnityContainer();
 
             var configuration = Core.Configuration.MetroApiConfig.GetConfig();
             var citiesConfig = configuration.Cities
                 .OfType<Core.Configuration.City>()
-                .ToDictionary(x => x.Id, x => HostingEnvironment.MapPath(x.Filepath));
+                .ToDictionary(x => x.Id, x =>
+                {
+                    if (Path.IsPathRooted(x.Filepath))
+                    {
+                        return x.Filepath;
+                    }
+                    else
+                    {
+                        return HostingEnvironment.MapPath(x.Filepath);
+                    }
+                });
 
             var citiesDictionary = new InjectionConstructor(
                 new InjectionParameter<IDictionary<string, string>>(citiesConfig));
 
             container.RegisterType<IMetroService, XmlMetroService>(citiesDictionary);
             
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            config.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
 }
