@@ -23,13 +23,6 @@ namespace MetroApi.Web.Controllers
             _metroService = metroService;
         }
 
-        [Route("test")]
-        [CacheOutputUntilThisMonth(25)]
-        public string GetTest()
-        {
-            return "Hello, World!";
-        }
-
         /// <summary>
         /// Get list of metro stations in Saint Petersburg
         /// </summary>
