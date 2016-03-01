@@ -19,9 +19,9 @@ namespace MetroApi.Tests
             using (var server = TestServer.Create<OwinTestConf>())
             {
                 // Arrange 
-                var client = new Client.MetroApiClient(server.BaseAddress);
+                var client = new Client.MetroApiClient(server.Handler);
                 // Act
-                var result = client.GetSaintPetersburgMetro();
+                var result = await client.GetSaintPetersburgMetro();
                 // Assert
                 Assert.NotNull(result);
                 Assert.NotNull(result.MetroLines);
