@@ -1,30 +1,31 @@
-# Metroapi
-
-## Станции метро в вашем приложении.
+# Metroapi 
 
 Сервис предоставляет сведения о линиях и станциях метрополитена. На сегодня доступны схемы метро Москвы и Санкт-Петербурга.
 
-### Документация | Documentation
+### Документация
  
 Список методов и формат ответа api: http://metroapi.ru/swagger/ui/index 
 
-
-### Пример использования | Usage
+### Пример использования
 
 ```
 curl -X GET --header "Accept: application/json" "http://metroapi.ru/api/metro/spb"
 
 curl -X GET --header "Accept: application/json" "http://metroapi.ru/api/metro/moscow"
 ```
+
+## Клиент
  
-### Установка клиента и пример использования | Installation and Usage
+### Установка
 
 ```PS
 Install-Package MetroApi.Client
 ```
 
+### Пример использования
+
 ```C#
 var client = new MetroApi.Client.MetroApiClient();
-var spbMetroSchema = client.GetSaintPetersburgMetro();
-var moscowMetroSchema = client.GetMoscowMetro();
+var spbMetroSchema = await client.GetSaintPetersburgMetro();
+var moscowMetroSchema = await client.GetMoscowMetro();
 ```
