@@ -7,6 +7,9 @@
         <projectUrl>http://metroapi.ru/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Станции метро Москвы и Санкт-Петербурга в вашем приложении.</description>
+        <dependencies>
+          <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
+        </dependencies>
     </metadata>
   <files>
     <file src="bin\$configuration$\MetroApi.Client.dll" target="lib" />
