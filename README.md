@@ -29,3 +29,7 @@ var client = new MetroApi.Client.MetroApiClient();
 var spbMetroSchema = await client.GetSaintPetersburgMetro();
 var moscowMetroSchema = await client.GetMoscowMetro();
 ```
+
+### Авторы
+
+@shemrudev, @bolkhovsky
