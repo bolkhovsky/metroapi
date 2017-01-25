@@ -1,5 +1,4 @@
-﻿using Microsoft.Owin.Testing;
-using Xunit;
+﻿using Xunit;
 using Xunit.Abstractions;
 
 namespace MetroApi.Tests
@@ -14,19 +13,16 @@ namespace MetroApi.Tests
         }
 
         [Fact]
-        public async void MetroClientTest()
+        public void MetroClientTest()
         {
-            using (var server = TestServer.Create<OwinTestConf>())
-            {
-                // Arrange 
-                var client = new Client.MetroApiClient(server.Handler);
-                // Act
-                var result = await client.GetSaintPetersburgMetro();
-                // Assert
-                Assert.NotNull(result);
-                Assert.NotNull(result.MetroLines);
-                Assert.NotEmpty(result.MetroLines);
-            }
+            // Arrange 
+            var client = new Client.MetroApiClient();
+            // Act
+            var result = client.GetSaintPetersburgMetro().Result;
+            // Assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.Lines);
+            Assert.NotEmpty(result.Lines);
         }
     }
 }
