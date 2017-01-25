@@ -1,18 +1,14 @@
 # Metroapi 
 
 Клиент для получения станций метро городов России через [HH API](https://github.com/hhru/api/blob/master/docs/metro.md).
-
-```
-
-## Клиент
  
-### Установка
+## Установка
 
 ```PS
 Install-Package MetroApi.Client
 ```
 
-### Пример использования
+## Пример использования
 
 ```C#
 var client = new MetroApi.Client.MetroApiClient();
