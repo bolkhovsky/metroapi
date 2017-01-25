@@ -11,13 +11,15 @@ namespace MetroApi.Client
         private readonly Uri _baseUri;
         private readonly HttpMessageHandler _handler;
 
+        const string ApiUrl = "https://api.hh.ru";
+
         public MetroApiClient()
-            : this(new Uri("http://metroapi.ru/"))
+            : this(new Uri(ApiUrl))
         {
         }
 
         public MetroApiClient(HttpMessageHandler handler)
-            : this(new Uri("http://metroapi.ru/"))
+            : this(new Uri(ApiUrl))
         {
             if (handler == null)
                 throw new ArgumentNullException("handler");
@@ -41,14 +43,19 @@ namespace MetroApi.Client
             return GetCityMetro(Constants.CityIds.Moscow);
         }
 
-        public async Task<City> GetCityMetro(string cityId)
+        public async Task<City> GetCityMetro(int cityId)
         {
             using (var client = _handler == null 
                 ? new HttpClient() 
                 : new HttpClient(_handler))
             {
-                client.BaseAddress = _baseUri;
-                var response = await client.GetAsync(string.Format("api/metro/{0}", cityId));
+                var request = new HttpRequestMessage()
+                {
+                    RequestUri = new Uri(string.Format("{0}/metro/{1}", ApiUrl, cityId)),
+                    Method = HttpMethod.Get,
+                };
+                request.Headers.Add("User-Agent", "MetroApi.Client (ilya@721lab.com)");
+                var response = await client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsAsync<City>();
             }

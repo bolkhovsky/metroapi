@@ -49,14 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Exceptions\CityNotFound.cs" />
     <Compile Include="MetroApiClient.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\MetroLine.cs" />
+    <Compile Include="Models\MetroStation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MetroApi.Core\MetroApi.Core.csproj">
-      <Project>{bfe745a9-666d-4098-9bf7-e7528e426fd1}</Project>
-      <Name>MetroApi.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="MetroApi.Client.nuspec">

@@ -1,16 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Web", "MetroApi.Web\MetroApi.Web.csproj", "{397A9236-766F-4799-B3CC-CC3768A1A41C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Core", "MetroApi.Core\MetroApi.Core.csproj", "{BFE745A9-666D-4098-9BF7-E7528E426FD1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Console", "MetroApi.Console\MetroApi.Console.csproj", "{BB0DD923-204B-4D82-8FE0-3BF2DCCC8638}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Xml", "MetroApi.Xml\MetroApi.Xml.csproj", "{AAD0B83B-9DB9-44F4-BA51-B44A5B725853}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Client", "MetroApi.Client\MetroApi.Client.csproj", "{C080D14C-2C34-479B-83EB-149AE89E282D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroApi.Tests", "MetroApi.Tests\MetroApi.Tests.csproj", "{7C7E4860-2774-4AAE-8F58-CBFE9AEE416E}"
@@ -21,22 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{397A9236-766F-4799-B3CC-CC3768A1A41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{397A9236-766F-4799-B3CC-CC3768A1A41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{397A9236-766F-4799-B3CC-CC3768A1A41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{397A9236-766F-4799-B3CC-CC3768A1A41C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BFE745A9-666D-4098-9BF7-E7528E426FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFE745A9-666D-4098-9BF7-E7528E426FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFE745A9-666D-4098-9BF7-E7528E426FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFE745A9-666D-4098-9BF7-E7528E426FD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB0DD923-204B-4D82-8FE0-3BF2DCCC8638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB0DD923-204B-4D82-8FE0-3BF2DCCC8638}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB0DD923-204B-4D82-8FE0-3BF2DCCC8638}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB0DD923-204B-4D82-8FE0-3BF2DCCC8638}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AAD0B83B-9DB9-44F4-BA51-B44A5B725853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAD0B83B-9DB9-44F4-BA51-B44A5B725853}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAD0B83B-9DB9-44F4-BA51-B44A5B725853}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAD0B83B-9DB9-44F4-BA51-B44A5B725853}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C080D14C-2C34-479B-83EB-149AE89E282D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C080D14C-2C34-479B-83EB-149AE89E282D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C080D14C-2C34-479B-83EB-149AE89E282D}.Release|Any CPU.ActiveCfg = Release|Any CPU
